@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Image Generator</title>
+    <title>IA geradora de Imagens</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -29,9 +29,9 @@
 </head>
 <body>
 
-<h2>Generate Free Images with AI</h2>
+<h2>Gere Imagens Grátis Com IA</h2>
 <input type="text" id="prompt" placeholder="Enter a description here" />
-<button onclick="generateImage()">Generate Image</button>
+<button onclick="generateImage()">Gerar Imagem</button>
 <div id="result"></div>
 
 <script>
@@ -62,7 +62,7 @@ async function generateImage() {
         const blob = await response.blob();
         const imageUrl = URL.createObjectURL(blob);
 
-        resultDiv.innerHTML = `<img src="${imageUrl}" alt="Generated Image" />`;
+        resultDiv.innerHTML = `<img src="${imageUrl}" alt="Imagem Gerada" />`;
     } catch (error) {
         resultDiv.innerHTML = 'Error: ' + error.message;
     }
