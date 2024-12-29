@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Image Generator</title>
+    <title>Gerador de Imagem</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -28,21 +28,21 @@
     </style>
 </head>
 <body>
-<h2>Generate Free Images with AI</h2>
-<input type="text" id="prompt" placeholder="Enter a description here" />
-<button onclick="generateImage()">Generate Image</button>
+<h2>Gere Imagens Grátis com IA</h2>
+<input type="text" id="prompt" placeholder="Coloque a Descrição aqui" />
+<button onclick="generateImage()">Gerar Imagem</button>
 <div id="result"></div>
 <script>
 async function generateImage() {
     const prompt = document.getElementById('prompt').value;
     const resultDiv = document.getElementById('result');
-    resultDiv.innerHTML = 'Generating...';
+    resultDiv.innerHTML = 'Gerando...';
     try {
         const response = await fetch('https://api-inference.huggingface.co/models/CompVis/stable-diffusion-v1-4', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer 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' // Coloque o token aqui
+                'Authorization': 'Bearer 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' //token aqui
             },
             body: JSON.stringify({ inputs: prompt })
         });
@@ -55,7 +55,7 @@ async function generateImage() {
         }
         const blob = await response.blob();
         const imageUrl = URL.createObjectURL(blob);
-        resultDiv.innerHTML = `<img src="${imageUrl}" alt="Generated Image" />`;
+        resultDiv.innerHTML = `<img src="${imageUrl}" alt="Imagem Gerada" />`;
     } catch (error) {
         resultDiv.innerHTML = 'Error: ' + error.message;
     }
